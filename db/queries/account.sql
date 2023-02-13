@@ -19,7 +19,7 @@ FOR NO KEY UPDATE;
 SELECT * FROM accounts
 ORDER BY id
 LIMIT $1
-OFFSET $1;
+OFFSET $2;
 
 -- name: UpdateAccount :one
 UPDATE accounts

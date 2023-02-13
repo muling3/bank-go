@@ -86,8 +86,11 @@ func TestListAccounts(t *testing.T) {
 	for i := 0; i < 10; i++ {
 		createRandomAccount(t)
 	}
-
-	accs, err := testQueries.ListAccounts(context.Background(), 5)
+	args := ListAccountsParams{
+		Limit: 5,
+		Offset: 1,
+	}
+	accs, err := testQueries.ListAccounts(context.Background(), args)
 	require.NoError(t, err)
 	require.Len(t, accs, 5)
 
